@@ -9,12 +9,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "create-installer-mac": "electron-installer-dmg ./release-builds/Calcy\\ app-darwin-x64/Calcy\\ app.app calcy-app --out=release-builds --overwrite --icon=assets/icons/mac/icon.icns",
-    "create-installer-win": "node installers/windows/createinstaller.js",
-    "create-debian-installer": "electron-installer-debian --src release-builds/calcy-app-linux-x64/ --arch amd64 --config debian.json",
-
     "postinstall": "electron-builder install-app-deps",
-    "dist": "build",
     "build": "electron-builder",
     "build-win": "electron-builder -w",
     "build-mac": "electron-builder -m",

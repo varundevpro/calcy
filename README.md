@@ -1,5 +1,8 @@
 # The Calcy App
 
+[![MIT License](https://img.shields.io/npm/l/varundevpro.svg?style=flat-square)][mit]
+[![Build status](https://github.com/varundevpro/calcy/workflows/CI/badge.svg?branch=master)][actions]
+
 <p align="center">
   <img alt="Calcy Icon" src="https://varundevpro.github.io/calcy/calcy-icon.png">
 </p>
@@ -63,3 +66,4 @@ Built with :heart: using <a href="https://electronjs.org/">Electron Framework</a
 [mit]: http://opensource.org/licenses/MIT
 [author]: http://github.com/varundevpro
 [release]: https://github.com/VarunDevPro/calcy/releases/latest
+[actions]: https://github.com/VarunDevPro/calcy/actions
