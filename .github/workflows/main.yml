@@ -7,7 +7,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -40,14 +39,14 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           mkdir artifacts
-          Compress-Archive  -Path dist/win-unpacked/* -DestinationPath artifacts/calcy-portable.zip
+          Compress-Archive  -Path dist/win-unpacked/* -DestinationPath artifacts/calcy-win-portable.zip
           mv dist/*.exe artifacts
       - name: Cleanup artifacts(Ubuntu)
         if: matrix.os == 'ubuntu-latest'
         run: |
           mkdir artifacts
           sudo mv dist/*.{exe,deb,AppImage,dmg,snap,zip} artifacts || true
-          zip -r artifacts/linux-unpacked.zip dist/linux-unpacked/
+          zip -r artifacts/calcy-linux-unpacked.zip dist/linux-unpacked/
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:

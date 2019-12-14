@@ -11,13 +11,9 @@
 
 - [About](#about)
 - [Features](#features)
-- [Downloads](#downloads)
+- [Install](#install)
 - [For Developers](#for-developers)
-  - [Contributing](#contributing)
-  - [Prerequisites](#prerequisites)
-  - [Build](#build)
 - [Third Party Plugins](#third-party-plugins)
-- [License](#license)
 
 ## About
 
@@ -57,7 +53,7 @@ Any contributions are welcome, if you plan to contribute please read the [contri
 
 None
 
-## &nbsp;
+---
 
 <p align="center">
 Built with :heart: using <a href="https://electronjs.org/">Electron Framework</a>.
