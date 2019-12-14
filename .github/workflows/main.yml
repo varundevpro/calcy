@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+      - name: Context
+        run: echo "Hello"
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: Build app
+        run: |
+          npm run build
+          ls dist
+      - name: Cleanup artifacts(Mac)
+        if: matrix.os == 'macOS-latest'
+        run: |
+          mkdir artifacts
+          sudo mv dist/*.{exe,deb,AppImage,dmg,snap,zip} artifacts || true
+      - name: Cleanup artifacts(Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          mkdir artifacts
+          Compress-Archive  -Path dist/win-unpacked/* -DestinationPath artifacts/calcy-portable.zip
+          mv dist/*.exe artifacts
+      - name: Cleanup artifacts(Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          mkdir artifacts
+          sudo mv dist/*.{exe,deb,AppImage,dmg,snap,zip} artifacts || true
+          zip -r artifacts/linux-unpacked.zip dist/linux-unpacked/
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: ${{matrix.os}}
+          path: artifacts
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: "artifacts/**"
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

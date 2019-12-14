@@ -1,0 +1,40 @@
+{
+  "name": "calcy",
+  "version": "1.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/varundevpro/calcy.git"
+  },
+  "description": "A Calculator app built with electron.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "create-installer-mac": "electron-installer-dmg ./release-builds/Calcy\\ app-darwin-x64/Calcy\\ app.app calcy-app --out=release-builds --overwrite --icon=assets/icons/mac/icon.icns",
+    "create-installer-win": "node installers/windows/createinstaller.js",
+    "create-debian-installer": "electron-installer-debian --src release-builds/calcy-app-linux-x64/ --arch amd64 --config debian.json",
+
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "build",
+    "build": "electron-builder",
+    "build-win": "electron-builder -w",
+    "build-mac": "electron-builder -m",
+    "build-linux": "electron-builder -l"
+  },
+  "author": {
+    "name": "Varun A🔥",
+    "url": "https://github.com/varundevpro"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^7.1.2",
+    "electron-builder": "^21.2.0"
+  },
+  "build": {
+    "directories": {
+      "buildResources": "assets/images/build"
+    },
+    "linux": {
+      "category": "Utility"
+    }
+  }
+}

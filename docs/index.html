@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calcy</title>
+  <link href='./fonts/typography.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="calculator.css">
+  <link rel="shortcut-icon" sizes="256x256" href="./icons/256x256.png">
+
+
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Calcy">
+  <meta name="apple-mobile-web-app-title" content="Calcy">
+  <meta name="theme-color" content="#ff5722">
+  <meta name="msapplication-navbutton-color" content="#ff5722">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A simple calculator app for basic arithmetic operations like addition, multiplication, subtraction and division.">
+  
+  <link rel="icon" sizes="48x48" href="./icons/16x16.png">
+  <link rel="apple-touch-icon" sizes="16x16" href="./icons/16x16.png">
+  <link rel="icon" sizes="48x48" href="./icons/24x24.png">
+  <link rel="apple-touch-icon" sizes="24x24" href="./icons/24x48.png">
+  <link rel="icon" sizes="48x48" href="./icons/48x48.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="./icons/48x48.png">
+  <link rel="icon" sizes="48x48" href="./icons/128x128.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="./icons/128x48.png">
+  <link rel="icon" sizes="256x256" href="./icons/256x256.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="./icons/256x256.png">
+
+
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="top">
+      <a class="dot close" href="#" title="close" style="background:#ED594A;">
+        <span>+</span>
+      </a>
+      <!-- <div class="dot" title="Close" style="background:#FDD800;">&nbsp;</div> -->
+      <p class="title">Calcy</p>
+      <a class="dot site" href="//calcy.ml" target="_blank" style="background:#5AC05A;" title="Open site">
+        <span>+</span>
+      </a>
+    </div>
+
+    <div class="content">
+      <div id="calculator">
+        <div class="screen">
+          <p></p>
+          <div class="backspace">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 581">
+              <g>
+                <g id="backspace">
+                  <path d="M561,76.5H178.5c-17.85,0-30.6,7.65-40.8,22.95L0,306l137.7,206.55c10.2,12.75,22.95,22.95,40.8,22.95H561
+                      			c28.05,0,51-22.95,51-51v-357C612,99.45,589.05,76.5,561,76.5z M484.5,397.8l-35.7,35.7L357,341.7l-91.8,91.8l-35.7-35.7
+                      			l91.8-91.8l-91.8-91.8l35.7-35.7l91.8,91.8l91.8-91.8l35.7,35.7L392.7,306L484.5,397.8z"></path>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="keys">
+
+          <span class="btn" data-key="7">7</span>
+          <span class="btn" data-key="8">8</span>
+          <span class="btn" data-key="9">9</span>
+          <span class="btn operator" data-key="/">/</span>
+
+          <span class="btn" data-key="4">4</span>
+          <span class="btn" data-key="5">5</span>
+          <span class="btn" data-key="6">6</span>
+          <span class="btn operator" data-key="*">*</span>
+          <span class="btn" data-key="1">1</span>
+          <span class="btn" data-key="2">2</span>
+          <span class="btn" data-key="3">3</span>
+          <span class="btn operator" data-key="-">-</span>
+
+          <span class="btn" data-key=".">.</span>
+          <span class="btn" data-key="0">0</span>
+          <span class="btn eval" data-key="Enter">=</span>
+          <span class="btn plus operator" data-key="+">+</span>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script defer src="app.js"></script>
+  <script defer src="pwa.js"></script>
+</body>
+
+</html>

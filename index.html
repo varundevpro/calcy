@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calcy</title>
+  <link href='./fonts/typography.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="top">
+      <div class="dot close" title="close" style="background:#ED594A;">x</div>
+      <!-- <div class="dot" title="Close" style="background:#FDD800;">&nbsp;</div> -->
+      <p class="title">Calcy</p>
+      <div class="dot copy" style="background:#5AC05A;" title="copy">+</div>
+    </div>
+
+    <div class="content">
+      <div id="calculator">
+        <div class="screen">
+          <p></p>
+          <!-- <span class="clear btn">C</span> -->
+        </div>
+        <div class="keys">
+
+          <span class="btn" data-key="7">7</span>
+          <span class="btn" data-key="8">8</span>
+          <span class="btn" data-key="9">9</span>
+          <span class="btn operator" data-key="/">/</span>
+
+          <span class="btn" data-key="4">4</span>
+          <span class="btn" data-key="5">5</span>
+          <span class="btn" data-key="6">6</span>
+          <span class="btn operator" data-key="*">*</span>
+          <span class="btn" data-key="1">1</span>
+          <span class="btn" data-key="2">2</span>
+          <span class="btn" data-key="3">3</span>
+          <span class="btn operator" data-key="-">-</span>
+
+          <span class="btn" data-key=".">.</span>
+          <span class="btn" data-key="0">0</span>
+          <span class="btn eval" data-key="Enter">=</span>
+          <span class="btn plus operator" data-key="+">+</span>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="app.js"></script>
+  <script>
+    const { ipcRenderer, clipboard } = require('electron');
+
+    document.querySelector(".close").addEventListener('click',function() {
+      ipcRenderer.sendSync('synchronous-message', 'close');
+    });
+
+    document.querySelector(".copy").addEventListener('click',function() {
+      clipboard.writeText(document.querySelector(".screen").textContent.trim());
+    });
+  </script>
+</body>
+
+</html>

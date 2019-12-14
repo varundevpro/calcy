@@ -1,0 +1,225 @@
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: inherit;
+  /* box-sizing: border-box; */
+}
+
+img,svg{
+  max-width: 100%;
+}
+
+html{
+  font-size: 150%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+body{
+  font: 1.5rem 'open_sanslight',sans-serif;
+  font-weight: 300;
+  width: 100%;
+  height: 100%;
+  overscroll-behavior-y: contain;
+}
+
+.container {
+  height: 100%;
+}
+.content{
+  height: calc(100%);
+}
+
+.top{
+  display: none;
+}
+.title{
+  cursor: move;
+  color:#fff;
+  font-size:0.8rem;
+  margin: 0 auto;
+}
+.dot {
+    height: 0.8rem;
+    width: 0.8rem;
+    background-color: #ff5722;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.close{
+  transform: rotate(45deg);
+}
+
+.site span{
+  transform: translateY(1px);
+}
+
+.dot:focus,.close:hover,.site:hover{
+  outline: none;
+  color: #fff;
+}
+
+::selection{
+  background-color: #ff5722;
+  color: #fff;
+}
+
+
+.btn{
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  user-select: none;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  background-color: rgb(231, 231, 231);
+  box-shadow: inset 0 2px 2px rgba(255,255,255,0.3),
+              0 2px 4px rgba(0,0,0,0.3);
+  border: 1px solid rgb(231,231,231);
+  transition: all 0.25s;
+
+}
+.btn:hover{
+  background-color: rgb(220, 220, 220);
+  border: 1px solid rgb(220,220,220);
+}
+.btn:active, .btn.active{
+  background-color: rgb(204, 204, 204);
+  box-shadow: inset 0 2px 2px rgba(255,255,255,0.3);
+  border: 1px solid rgb(204,204,204);
+}
+.screen{
+  background-color: #bccfc7;
+  min-height: 5.5rem;
+  display: flex;
+  box-shadow: inset 8px 0 10px #bccfc7;
+  text-align: right;
+  justify-content: flex-end;
+  align-items: center;
+}
+.screen p{
+  padding: 1.5rem 0.5rem;
+  overflow-x: scroll;
+}
+
+.backspace{
+  width: 1.6rem;
+  flex-shrink: 0;
+  padding: 0.5rem;
+  box-shadow: -10px 0 10px #bccfc7;
+  z-index: 10;
+}
+
+.backspace svg{
+  fill: rgba(0, 0, 0, 0.8);
+  transition: all 0.3s;
+}
+
+.backspace:hover svg{
+  fill: rgb(0, 0, 0);
+  transform: scale(0.95);
+}
+
+.backspace:active svg{
+  fill: rgb(0, 0, 0);
+  transform: scale(0.92);
+}
+
+#calculator{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ddd;
+}
+.keys{
+  flex: 1;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  justify-items: center;
+  align-items: center;
+}
+
+.plus, .eval {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.eval {
+  color: #fff;
+  background-color: #ff5722;
+  border: 1px solid #ff5722;
+  transition: background-color 0.25s,box-shadow 0.25s;
+}
+.eval:hover,.eval.active,.eval:active {
+  background-color: #f44336;
+  border: 1px solid #f44336;
+}
+
+
+@media only screen and (min-width: 500px) {
+  html{
+    background-color: #ddd;
+    background-image: url('https://www.camposanto.com/external/wallpapers/Launch_Green/FWG_2560x1440.jpg');
+    background-size: cover;
+  }
+  body {
+    width: 350px;
+    height: 500px;
+  }
+  .container{
+    background-color: #ddd;
+    box-shadow: 0px 0px 16px rgba(0,0,0,0.85);
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .top{
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.8);
+    user-select: none;
+    -webkit-app-region: drag;
+  }
+  .content{
+    height: calc(100% - 2.25rem);
+  }
+
+  ::-webkit-scrollbar-track{
+  }
+
+  ::-webkit-scrollbar{
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+}
