@@ -8,10 +8,9 @@ let mainWindow;
 
 ipcMain.on('synchronous-message', (event, arg) => {
   app.quit();
-})
+});
 
 app.on('ready', () => {
-
   mainWindow = new BrowserWindow({
     width: 350,
     height: 500,
@@ -31,32 +30,35 @@ app.on('ready', () => {
         {
           label: 'Reload',
           accelerator: 'CommandOrControl+R',
-          role: 'reload',
+          role: 'reload'
         },
         {
           label: 'Quit',
           accelerator: 'CommandOrControl+W',
-          role: 'close',
-        },
-      ],
-    },
-
+          role: 'close'
+        }
+      ]
+    }
   ]);
 
   Menu.setApplicationMenu(menuConfig);
 });
 
 const menu = new Menu();
-menu.append(new MenuItem({
-  label: 'Reload',
-  accelerator: 'CommandOrControl+R',
-  role: 'reload',
-}));
-menu.append(new MenuItem({
-  label: 'Quit',
-  accelerator: 'CommandOrControl+W',
-  role: 'close',
-}));
+menu.append(
+  new MenuItem({
+    label: 'Reload',
+    accelerator: 'CommandOrControl+R',
+    role: 'reload'
+  })
+);
+menu.append(
+  new MenuItem({
+    label: 'Quit',
+    accelerator: 'CommandOrControl+W',
+    role: 'close'
+  })
+);
 
 // menu.append(new MenuItem({ type: 'separator' }));
 // menu.append(new MenuItem({
@@ -67,13 +69,13 @@ menu.append(new MenuItem({
 //   }
 // }));
 
-app.on('browser-window-created', function (event, win) {
-  win.webContents.on('context-menu', function (e, params) {
+app.on('browser-window-created', function(event, win) {
+  win.webContents.on('context-menu', function(e, params) {
     menu.popup(win, params.x, params.y);
   });
 });
 
-ipcMain.on('show-context-menu', function (event) {
+ipcMain.on('show-context-menu', function(event) {
   const win = BrowserWindow.fromWebContents(event.sender);
   menu.popup(win);
 });

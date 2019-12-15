@@ -1,32 +1,29 @@
-self.addEventListener('install', function (event) {
-    event.waitUntil(preLoad());
+self.addEventListener('install', function(event) {
+  event.waitUntil(preLoad());
 });
 
-var preLoad = function () {
-    console.log('Install Event processing');
-    return caches.open('calcypwa').then(function (cache) {
-        console.log('Cached index and offline page during Install');
-        return cache.addAll([
-            '/',
-            '/offline.html',
-            '/index.html',
-            'fonts/typography.css',
-            '/calculator.css',
-            '/app.js',
-        ]);
-    });
-}
+var preLoad = function() {
+  console.log('Install Event processing');
+  return caches.open('calcypwa').then(function(cache) {
+    console.log('Cached index and offline page during Install');
+    return cache.addAll([
+      '/',
+      '/offline.html',
+      '/index.html',
+      'fonts/typography.css',
+      '/calculator.css',
+      '/app.js'
+    ]);
+  });
+};
 
-
-self.addEventListener('fetch', function (event) {
-
-    event.respondWith(
-        caches.match(event.request).then(function (res) {
-            if (res) return res;
-            return fetch(event.request);
-        })
-    );
-
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(res) {
+      if (res) return res;
+      return fetch(event.request);
+    })
+  );
 });
 
 // self.addEventListener('fetch', function (event) {

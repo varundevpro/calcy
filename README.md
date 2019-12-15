@@ -32,16 +32,20 @@ A basic calculator app built with electron.
 
 | Platform | Arch | Version | Link                |
 | -------- | ---- | ------- | ------------------- |
-| Windows  | x86  | 1.0.1   | [Download][release] |
-| Windows  | x86  | 1.0.0   | [Download][release] |
+| Windows  | x64  | 1.1.0   | [Download][release] |
+| Windows  | x64  | 1.1.0   | [Download][release] |
 
 ## Install
 
 **macOS**: [**Download**][release] the `.dmg` file or run `brew cask install calcy`
 
-**Linux**: [**Download**][release] the `.AppImage` file or run `snap install calcy`
-
 **Windows**: [**Download**][release] the `.exe` installer.
+
+**Debian**: [**Download**][release] the `.deb` installer.
+
+**Fedora**: [**Download**][release] the `.rpm` installer.
+
+**Other Linux distros**: [**Download**][release] the `.AppImage` file or run `snap install calcy`
 
 **Browser**: [**Start**](https://calcyapp.ml) the browser version.
 
